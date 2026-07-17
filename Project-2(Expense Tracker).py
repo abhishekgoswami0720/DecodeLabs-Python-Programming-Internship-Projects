@@ -1,23 +1,23 @@
 def get_expense():
     
-    raw_input_value = input("Enter an expense amount (or 'done' to finish): ").strip()
+    expense_amount = input("Enter an expense amount (or 'done' to finish): ").strip()
 
-    if raw_input_value.lower() == "done":
+    if expense_amount.lower() == "done":
         return None
 
     try:
-        expense = float(raw_input_value)
+        expense = float(expense_amount)
         if expense < 0:
-            print("⚠️  Expenses can't be negative. Try again.")
+            print("Expenses can't be negative. Try again.")
             return -1
         return expense
     except ValueError:
-        print("⚠️  That's not a valid number. Please try again.")
+        print("That's not a valid number. Please try again.")
         return -1
 
 
 def main():
-    print("Welcome to your Python Expense Tracker! 💰")
+    print("Welcome to your Python Expense Tracker!")
     print("Enter your expenses one by one. Type 'done' when you're finished.\n")
 
     total = 0.0         
@@ -33,7 +33,7 @@ def main():
 
         total += expense   
         expense_count += 1
-        print(f"✅ Added ₹{expense:.2f}. Running total: ₹{total:.2f}\n")
+        print(f"Added ₹{expense:.2f}. Running total: ₹{total:.2f}\n")
     print("\n===== EXPENSE SUMMARY =====")
     if expense_count == 0:
         print("No expenses were entered.")
